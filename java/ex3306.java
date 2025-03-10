@@ -4,7 +4,7 @@
  */
 class ex3306 {
 
-    // This array will be used to check if a character is a vowel or not, its size is 128 so i can cover all the
+    // This boolean array will be used to check if a character is a vowel or not, its size is 128 so i can cover all the
     // ASCII characters.
     private static final boolean[] IS_VOWEL = new boolean[128];
 
