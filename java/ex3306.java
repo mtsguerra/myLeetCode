@@ -84,6 +84,6 @@ class ex3306 {
 
     public static void main(String[] args) {
         ex3306 myo = new ex3306();
-        System.out.println(myo.countOfSubstrings("ieaouqqieaouqq", 1));
+        System.out.println(myo.countOfSubstrings("ieaouqqieaouqq", 2));
     }
 }
