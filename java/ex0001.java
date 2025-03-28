@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class ex0001 {
     /**
      * Finds two numbers in an array that add up to a target value.
+     *
+     * Time Complexity: O(n) where n is the length of the array
+     * Space Complexity: O(n) for the HashMap
+     *
      * @param nums nums Array of integers
      * @param target Target value to find
      * @return An array containing the indices of the two numbers that add up to the target value.
