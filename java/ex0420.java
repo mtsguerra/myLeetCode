@@ -1,4 +1,4 @@
-class ex420{
+class ex0420{
 
     private static final int LOWERCASE_COUNT = 0;
     private static final int UPPERCASE_COUNT = 1;
