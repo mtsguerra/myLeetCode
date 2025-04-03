@@ -4,6 +4,13 @@ public class ex0006 {
      * The zigzag conversion of a string is a way of writing the string in a
      * zigzag pattern on a given number of rows.
      *
+     * Approach:
+     * 1. Process each row separately.
+     * 2. For the first and last rows, we can directly append characters
+     * 3. For the middle rows, we need to alternate between two distances,
+     * that is calculated as the distance between the corresponding
+     * characters in the diagonal and in the next column.
+     *
      * Time complexity: O(n) where n is the length of the string s.
      * Space complexity: O(n) for the StringBuilder
      *
@@ -223,6 +230,6 @@ public class ex0006 {
 
     public static void main(String[] args) {
         ex0006 myo = new ex0006();
-        System.out.println(myo.cnv("PAYPALISHIRING", 4));
+        System.out.println(myo.convert("PAYPALISHIRING", 4));
     }
 }
