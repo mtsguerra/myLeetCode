@@ -275,7 +275,7 @@ class ex0420{
 
     // Test method
     public static void main(String[] args) {
-        ex420 myObj = new ex420();
+        ex0420 myObj = new ex0420();
         String str = "QQQQQ";
         int p = myObj.strongPasswordChecker(str);
         System.out.println("The result is: " + p);
