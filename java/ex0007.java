@@ -1,24 +1,35 @@
 public class ex0007 {
 
-    //-----------------------------------------//
-    // int this one i find the "size" of the initial int so i can iterate thru it until it ends, so i use the size that i found to get the power of
-    // 10 that i will be using initially and while i iterate thru i will be getting x % 10 and multiplying with 10 to the power that i found and adding
-    // to a new int that will serve to return in the end the reversed x, moving the power and the value of x while in the loop
-
+    /**
+     * Reverses the digits of a signed 32-bit integer. Returns 0 if the
+     * result overflows.
+     *
+     * Approach:
+     * 1. Initialize a variable to store the reversed integer.
+     * 2. Use a loop to extract the last digit of the integer and append it
+     * 3. Checking for overflow conditions:
+     *
+     * Time complexity: O(log n) where n is the number of digits in x.
+     * Space complexity: O(1) since we are using a constant amount of space.
+     *
+     * @param x the integer to be reversed
+     * @return the reversed integer
+     */
     public int reverse(int x) {
         int finalInt = 0;
-        int size = String.valueOf(Math.abs(x)).length(); 
-        int power = size-1;
-        for (int i=0;i<size;i++){
-            finalInt+= (x % 10) * Math.pow(10, power);
-            power--;
+        while (x!=0){
+            int digit = x%10;
             x/= 10;
+            // Check for overflow
+            if (finalInt > Integer.MAX_VALUE/10
+                || (finalInt == Integer.MAX_VALUE/10 && digit > 7)) return 0;
+            if (finalInt < Integer.MIN_VALUE/10
+                || (finalInt == Integer.MIN_VALUE/10 && digit < -8)) return 0;
+            finalInt = finalInt * 10 + (x%10);
+
         }
-        if (finalInt < Integer.MIN_VALUE || finalInt > Integer.MAX_VALUE-1) return 0;
         return finalInt;
     }   
-
-    //-----------------------------------------//
 
     public static void main(String[] args) {
         ex0007 myo= new ex0007();
