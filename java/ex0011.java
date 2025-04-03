@@ -1,12 +1,23 @@
 public class ex0011 {
 
-    //-----------------------------------------------------------------------------//
-    // in this exercise i will be using a right pointer and a left pointer to keep track
-    // of both edges of the array, and iterate until one equals another or else, now on
-    // the loop i will be getting the currentArea by using minHeight and the distance between them
-    // and where the lowest height lies i will be advancing one index, in this way we can be 
-    // sure that the biggest height will be use on the next try to find a bigger area
-
+    /**
+     * Given n non-negative integers in an array height representing the
+     * height of a vertical line drawn at x = i, find two lines,
+     * which together result in the maximum area.
+     *
+     * Approach:
+     * 1. Initialize two pointers, one at the beginning and one at the end
+     * of the array.
+     * 2. Calculate the area formed by the lines at these two pointers.
+     * 3. Move the pointer pointing to the shorter line towards the other pointer.
+     * 4. Repeat steps 2 and 3 until the two pointers meet.
+     *
+     * Time complexity: O(n) where n is the number of elements in the array.
+     * Space complexity: O(1) since we are using a constant amount of space.
+     *
+     * @param height the array of heights
+     * @return the maximum area
+     */
     public int maxArea(int[] height) {
         int maxArea = 0;
         int left =0;
@@ -20,5 +31,4 @@ public class ex0011 {
         return maxArea;
     }
 
-    //-----------------------------------------------------------------------------//
 }
