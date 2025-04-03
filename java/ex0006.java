@@ -1,10 +1,51 @@
 public class ex0006 {
 
-    //----------------------------------------------------------------//
-    // using the same logic as the last try, but instead of creating a list to store all the characters and reading after all that, i just created
-    // a string builder and a variable that would accompany the index of the final word adding to the string builder that was initialized with the
-    // same size of the original string and filled with empty spaces to be changed later on with the intended letters
+    /**
+     * The zigzag conversion of a string is a way of writing the string in a
+     * zigzag pattern on a given number of rows.
+     *
+     * Time complexity: O(n) where n is the length of the string s.
+     * Space complexity: O(n) for the StringBuilder
+     *
+     * @param s the string to be converted
+     * @param numRows the number of rows to convert the string into
+     * @return the converted string
+     */
+    public String convert(String s, int numRows){
+        if (numRows == 1) return s;
 
+        StringBuilder answer = new StringBuilder();
+        int crrRow = 0;
+        int distance = (numRows-1)*2;
+        while (crrRow < numRows){
+            int tempIndex = crrRow;
+            if (tempIndex >= s.length()) return answer.toString();
+            if (crrRow==0 || crrRow == numRows-1){
+                while (tempIndex < s.length()){
+                    answer.append(s.charAt(tempIndex));
+                    tempIndex+=distance;
+                }
+            }
+            else{
+                int fHalf = distance - (2*crrRow);
+                int sHalf = distance - fHalf;
+                answer.append(s.charAt(tempIndex));
+                tempIndex+=fHalf;
+                while (tempIndex < s.length()){
+                    answer.append(s.charAt(tempIndex));
+                    tempIndex+=sHalf;
+                    if (tempIndex < s.length()){
+                        answer.append(s.charAt(tempIndex));
+                        tempIndex+=fHalf;
+                    }
+                }
+            }
+            crrRow++;
+        }
+        return answer.toString();
+    }
+
+    /*
     public String convert(String s, int numRows){
 
         if (numRows == 1) return s;
@@ -56,8 +97,12 @@ public class ex0006 {
     }
 
     //----------------------------------------------------//
+    // some old thoughts on the problem,
 
-    /*----------------------------------------------------//
+
+
+
+    ----------------------------------------------------//
     // The first row and the last would always increase the index of their chars in numRows + numDiag, so we can get all the 
     // desirable characters by doing this pattern, on the other hand the other rows would be more tricky to find the pattern, as they
     // alternate between even numbers, like the increase of index of the first line (excluding the first and last as they are already solved) 
@@ -178,6 +223,6 @@ public class ex0006 {
 
     public static void main(String[] args) {
         ex0006 myo = new ex0006();
-        System.out.println(myo.convert("PAYPALISHIRING", 4));
+        System.out.println(myo.cnv("PAYPALISHIRING", 4));
     }
 }
