@@ -3,45 +3,35 @@ import java.util.Scanner;
 
 public class ex0014 {
 
-    //--------------------------------------------------------------------//
-    // first of all we use it a sort command to that the array can be sorted, so if they
-    // are sorted and have the same beginning and we are analyzing all the strings, so we
-    // can compare only the first one and the last one on the sorted list, creating a stringbuilder
-    // so we can store the common prefix, so while the prefixes are equals we will be appending 
-    // to the stringbuilder and returning it in the final
-
-    static Scanner input = new Scanner(System.in);
-
-    public String longestCommonPrefix(String[] strs) {
+    /**
+     * Given an array of strings, find the longest common prefix string
+     *
+     * Approach:
+     * 1. Check if the array is empty or has only one string.
+     * 2. Initialize a variable to keep track of the end index of the prefix.
+     * 3. Use a loop to compare characters at the same index in all strings.
+     * 4. If a mismatch is found, return the prefix up to that index.
+     *
+     * Time complexity: O(n*m) where n is the number of strings and m is the length of the longest string.
+     * Space complexity: O(1) since we are using a constant amount of space.
+     *
+     * @param strs the array of strings
+     * @return the longest common prefix
+     */
+    public String longestCommonPrefix(String[] strs){
         if (strs.length==0) return "";
         if (strs.length==1) return strs[0];
-        Arrays.sort(strs);
-        String base = strs[0];
-        String lst = strs[strs.length-1];
-        StringBuilder fin = new StringBuilder();
-        for (int i=0;i<Math.min(base.length(), lst.length());i++){
-            if (base.charAt(i) != lst.charAt(i)) return fin.toString();
-            fin.append(base.charAt(i));
+        int end = 0;
+        String prefix = strs[0];
+        while (end < prefix.length()){
+            for (int i=0;i<strs.length;i++){
+                if (end >= strs[i].length() || strs[i].charAt(end) != prefix.charAt(end)){
+                    if (end==0) return "";
+                    else return prefix.substring(0, end);
+                }
+            }
+            end++;
         }
-        return fin.toString();
-    }
-
-    public void read(){
-        String [] cm = new String[3];
-        for (int i=0;i<3;i++){
-            String s = input.nextLine();
-            cm[i] = s;
-        }
-        String [] pp = new String[1];
-        String v = "";
-        pp[0] = v;
-        String f = longestCommonPrefix(pp);
-        System.out.println(f);
-    }
-
-    //--------------------------------------------------------------------//
-    public static void main(String[] args) {
-        ex0014 myo = new ex0014();
-        myo.read();
+        return prefix.substring(0, end);
     }
 }
