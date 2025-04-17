@@ -1,8 +1,50 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ex0015 {
-    public List<List<Integer>> threeSum(int[] nums) {
+
+    /**
+     * Finds all unique triplets in the array that sum to zero.
+     *
+     * Approach:
+     * 1. Sort the array to use the two-pointer method.
+     * 2. Iterate through the array, using the current element as a reference.
+     * 3. Use two pointers to find pairs that sum to the negative of the
+     * current element.
+     *
+     * Time complexity: O(n^2) where n is the length of the array.
+     * Space complexity: O(1) since we are using a constant amount of space.
+     *
+     * @param nums the input array
+     * @return a list of lists containing the triplets that sum to zero
+     */
+    public List<List<Integer>> threeSum(int[] nums){
+        List<List<Integer>> answer = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i=0;i<nums.length-2;i++){
+            if (nums[i] > 0) break;
+            if (i>0&&nums[i]==nums[i-1]) continue;
+            int n = nums[i];
+            int left=i+1, right=nums.length-1;
+            while (left < right){
+                int sum = n + nums[left] + nums[right];
+                if (sum==0){
+                    answer.add(List.of(n, nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    left++;
+                    right--;
+                }
+                else if (sum < 0) left++;
+                else right--;
+            }
+        }
+        return answer;
+    }
+
+    /*
+    public List<List<Integer>> threeSum1(int[] nums) {
         List<List<Integer>> f = new ArrayList<>();
         mergeSort(nums);
         // until nums.length-1 because we do not need to try to find a pair when theres only one remaining number on the sliced list
@@ -82,6 +124,7 @@ public class ex0015 {
             k++;
         }
     }
+     */
     public static void main(String[] args) {
         int[] nums = {-1,0,1,2,-1,-4};
         ex0015 myo = new ex0015();
