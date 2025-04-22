@@ -1,16 +1,25 @@
 public class ex0008 {
 
-
-    //--------------------------------------------------------------------//
-    // we basically iterate through the string ignoring the initial subsequent of spaces,
-    // until we found a different character, if this character its not a digit we only add
-    // him in the case of + and -, if not we will return 0, so after finding the first char
-    // we will be adding all the subsequent digits until one !digit is found, and return this string
-    // now on the other we will use a try to the case of the string not being able to be
-    // converted into a integer through Integer.valueOf, now on the catch we will try the 3 cases,
-    // one which the string its not null and the first char its a negative sign returning int.minv
-    // the other one being the opposite 
-
+    /**
+     * Converts a string to a 32-bit signed integer, following the rules similar
+     * to those of the `atoi` function in C.
+     *
+     * Rules:
+     * - Discards all leading whitespace characters.
+     * - Considers an optional initial '+' or '-' for the sign.
+     * - Parses the subsequent numerical characters, stopping at the first
+     *   non-numerical character.
+     * - If the resulting integer is out of the 32-bit range, clamps the value
+     *   to Integer.MIN_VALUE or Integer.MAX_VALUE.
+     * - If no numerical characters are present, returns 0.
+     *
+     * Time complexity: O(n) where n is the length of the string.
+     * Space complexity: O(1) since we are using a constant amount of space.
+     *
+     * @param s The input string to be converted to an integer.
+     * @return The integer representation of the string, clamped to 32-bit signed
+     *         integer range if necessary, or 0 if no valid conversion exists.
+     */
     public int myAtoi(String s) {
         try {
             return Integer.valueOf(filter(s));
