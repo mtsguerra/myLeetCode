@@ -1,5 +1,51 @@
+import java.util.Arrays;
+
 public class ex0016 {
+
+    /**
+     * Finds the sum of three integers in an array such that the sum is closest to a given target value.
+     * If there are multiple possible closest sums, the smallest one is returned.
+     * The input array is sorted, and a two-pointer approach with nested iterations is used.
+     *
+     * Time Complexity: O(n^2) where n is the length of the array
+     * Space Complexity: O(1) as the sorting modifies the input array in-place
+     *
+     * @param nums Array of integers where the closest sum is to be found
+     * @param target The target value to which the closest sum is calculated
+     * @return The sum of three integers from the input array closest to the target value
+     */
     public int threeSumClosest(int[] nums, int target) {
+        if (nums.length == 3) return nums[0] + nums[1] + nums[2];
+        Arrays.sort(nums);
+        int closest = nums[0] + nums[1] + nums[2];
+        for (int i=0;i<nums.length-2;i++){
+            int current = nums[i];
+            if (i > 0 && current == nums[i-1]) continue; // Skip duplicates
+            int newTarget = target - current;
+            int left = i+1;
+            int right = nums.length-1;
+            int currentClosest = nums[left] + nums[right];
+            while (left<right){
+                int currentSum = nums[left] + nums[right];
+                if (currentSum == newTarget) return target;
+                if (currentSum > newTarget){
+                    currentClosest = Math.abs(newTarget-currentClosest) > Math.abs(newTarget-currentSum) ? currentSum : currentClosest;
+                    right--;
+                }
+                else {
+                    currentClosest = Math.abs(newTarget-currentClosest) > Math.abs(newTarget-currentSum) ? currentSum : currentClosest;
+                    left++;
+                }
+            }
+            if (Math.abs(target - (currentClosest+current)) < Math.abs(target - closest)){
+                closest = currentClosest + current;
+            }
+        }
+        return closest;
+    }
+
+    /*
+    public int threeSumClosest1(int[] nums, int target) {
         if (nums.length == 3) return nums[0] + nums[1] + nums[2];
         mergeSort(nums);
         int closest=target < 0 ? Integer.MIN_VALUE : Integer.MAX_VALUE; 
@@ -73,6 +119,8 @@ public class ex0016 {
             k++;
         }
     }
+
+     */
     public static void main(String[] args) {
         int[] ns = {1,1,1,1};
         ex0016 myo = new ex0016();
