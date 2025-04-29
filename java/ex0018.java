@@ -1,10 +1,55 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ex0018 {
+
+    /**
+     * Finds all unique quadruplets in the array that sum to a given target.
+     *
+     * Approach:
+     * 1. Sort the array to enable the two-pointer technique.
+     * 2. Iterate through the array, using two nested loops to fix the first two elements.
+     * 3. Use two pointers to find pairs that sum to the negative of the sum of the first two elements.
+     *
+     * Time complexity: O(n^3) where n is the length of the array.
+     * Space complexity: O(1) since I am using a constant amount of space.
+     *
+     * @param nums the input array
+     * @param target the target sum
+     * @return a list of lists containing the quadruplets that sum to the target
+     */
     public List<List<Integer>> fourSum(int[] nums, int target) {
+        if (nums == null || nums.length < 4) return new ArrayList<>();
+        int size = nums.length;
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i=0;i<size-3;i++){
+            if (i > 0 && nums[i] == nums[i-1]) continue; // skip duplicates
+            long first = nums[i];
+            for (int j=i+1;j<size-2;j++){
+                if (j > i+1 && nums[j] == nums[j-1]) continue; // skip duplicates
+                long second = nums[j];
+                int left = j+1;
+                int right = size-1;
+                while (left < right){
+                    long sum = nums[left] + nums[right] + first + second;
+                    if (sum == target){
+                        ans.add(Arrays.asList(nums[i], nums[j], nums[left],
+                                nums[right]));
+                        while (left < right && nums[left] == nums[left+1]) left++;
+                        while (left < right && nums[right] == nums[right - 1]) right--;
+                        left++;
+                        right--;
+                    }
+                    else if (sum < target) left++;
+                    else right--;
+                }
+            }
+        }
+        return ans;
+    }
+
+    /*
+    public List<List<Integer>> fourSum1(int[] nums, int target) {
         mergeSort(nums);
         HashSet<List<Long>> f = new HashSet<>();
         for (int i=0;i<nums.length-3;i++){
@@ -96,9 +141,17 @@ public class ex0018 {
             k++;
         }
     }
+
+     */
     public static void main(String[] args) {
-        int[] n = {1,0,-1,0,-2,2};
+        int[] n = {1,0,-1,0,-2,2,-1};
         ex0018 myo = new ex0018();
-        myo.fourSum(n, 0);
+        List<List<Integer>> l = myo.fourSum(n, 0);
+        for (List<Integer> temp : l){
+            for (int i : temp){
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
     }
 }
