@@ -1,4 +1,7 @@
 import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class ex0018 {
 
@@ -143,15 +146,15 @@ public class ex0018 {
     }
 
      */
-    public static void main(String[] args) {
-        int[] n = {1,0,-1,0,-2,2,-1};
-        ex0018 myo = new ex0018();
-        List<List<Integer>> l = myo.fourSum(n, 0);
-        for (List<Integer> temp : l){
-            for (int i : temp){
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
+
+    @Test
+    public void testFourSumExample(){
+        int[] nums = {1, 0, -1, 0, -2, 2};
+        List<List<Integer>> result = fourSum(nums, 0);
+        assertTrue(result.contains(Arrays.asList(-2, -1, 1, 2)));
+        assertTrue(result.contains(Arrays.asList(-2, 0, 0, 2)));
+        assertTrue(result.contains(Arrays.asList(-1, 0, 0, 1)));
     }
+
+
 }
