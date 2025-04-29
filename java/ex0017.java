@@ -1,6 +1,16 @@
 import java.util.*;
 
 class ex0017{
+    /**
+     * Generates all possible letter combinations that a given string of digits could represent
+     * based on the mapping of digits to letters on a telephone keypad.
+     *
+     * Time Complexity: O(4^n * n) where n is the length of the input digits
+     * Space Complexity: O(n) for the recursion stack
+     *
+     * @param digits The input string representing digits from 2 to 9
+     * @return A list of all possible letter combinations. Returns an empty list if the input is null or empty.
+     */
     public List<String> letterCombinations(String digits) {
         Map<Integer, char[]> map = Map.of(
                 2, new char[]{'a', 'b', 'c'},
