@@ -1,21 +1,24 @@
 public class ex0019 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummyHead = head;
         ListNode current = head;
         ListNode last = null;
-        //int sz = head.size;
         int i =0;
-        //while (i < sz-n){
-        //    last = current;
-        //    current = current.next;
-        //}
-        if (current.next==null){
-            last.next = null;
+        int siz = 0;
+        while (current != null){
+            siz++;
+            current = current.next;
         }
-        else {
-            last.next = current.next;
+        current = head;
+        while (i<siz-n){
+            last = current;
+            current = current.next;
+            i++;
         }
-        return dummyHead;
+        if (last == null){
+            return head.next;
+        }
+        last.next = current.next;
+        return head;
     }
 }
 
