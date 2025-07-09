@@ -9,7 +9,7 @@ public class ex0001 {
      * Space Complexity: O(n) for the HashMap
      *
      * @param nums nums Array of integers
-     * @param target Target value to findd
+     * @param target Target value to find
      * @return An array containing the indices of the two numbers that add up to the target value.
      */
     public int[] twoSum(int[] nums, int target) {
