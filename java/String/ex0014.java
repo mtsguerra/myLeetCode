@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class ex0014 {
 
     /**
