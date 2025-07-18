@@ -13,6 +13,15 @@ import java.util.*;
 
 class ex1290{
 
+    /**
+     * Converts a binary number represented as a linked list to its decimal value.
+     *
+     * Time Complexity: O(n) where n is the number of nodes in the linked list.
+     * Space Complexity: O(1) since we are using a constant amount of space for the answer.
+     *
+     * @param head The head of the linked list representing a binary number.
+     * @return The decimal value of the binary number represented by the linked list.
+     */
     public int getDecimalValue(ListNode head) {
 
         // Iterative approach to convert binary linked list to decimal

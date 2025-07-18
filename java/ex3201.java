@@ -2,6 +2,16 @@ import java.util.*;
 
 public class ex3201 {
 
+    /**
+     * This method calculates the maximum length of a subsequence of numbers
+     * where the parity (even or odd) of the numbers alternates.
+     *
+     * Time Complexity: O(n) where n is the length of the array
+     * Space Complexity: O(1) for the counters
+     *
+     * @param nums An array of integers
+     * @return The maximum length of the alternating subsequence
+     */
     public int maximumLength(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;

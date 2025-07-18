@@ -13,6 +13,19 @@ class Room {
 }
 
 class ex2402 {
+    /**
+     * This method finds the room that is booked the most number of times
+     * given a list of meetings with their start and end times.
+     *
+     * Time Complexity: O(m log m + n log n) where m is the number of meetings
+     * and n is the number of rooms.
+     * Space Complexity: O(n) for the priority queues and timesUsed array.
+     *
+     * @param n The number of rooms available.
+     * @param meetings An array of meetings where each meeting is represented by
+     * an array containing start and end times.
+     * @return The index of the room that is booked the most number of times.
+     */
     public int mostBooked(int n, int[][] meetings) {
         Arrays.sort(meetings, (a,b) -> {
             if (a[0] != b[0]) return a[0] - b[0];

@@ -9,6 +9,19 @@ public class ex1900 {
         }
     }
 
+    /**
+     * This method calculates the earliest and latest rounds in which two players
+     * (firstPlayer and secondPlayer) can meet in a tournament of n players.
+     *
+     * Time Complexity: O(n log n) for the priority queue operations
+     * Space Complexity: O(n) for the priority queues
+     *
+     * @param n the number of players in the tournament
+     * @param firstPlayer first player
+     * @param secondPlayer second player
+     * @return an array containing the earliest and latest rounds in which
+     * the two players can meet
+     */
     public int[] earliestAndLatest(int n, int firstPlayer, int secondPlayer) {
         int[] ans = new int[2];
         PriorityQueue<pos> pqMin = new PriorityQueue<>((a,b)->a.initialPosition-b.initialPosition);

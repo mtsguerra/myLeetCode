@@ -1,6 +1,19 @@
 import java.util.*;
 
 class ex3202 {
+    /**
+     * This method calculates the maximum length of a subsequence of numbers
+     * where the sum of any two adjacent numbers in the subsequence is
+     * divisible by k.
+     *
+     * Time Complexity: O(n * k) where n is the length of the array and k
+     * is the divisor.
+     * Space Complexity: O(k^2) for the dp array (matrix).
+     *
+     * @param nums An array of integers
+     * @param k An integer divisor
+     * @return The maximum length of the subsequence
+     */
     public int maximumLength(int[] nums, int k) {
         int maxLength = 0;
         for (int i = 0; i < nums.length; i++) {
