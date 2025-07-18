@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class ex1400 {
     public boolean canConstruct(String s, int k) {
         int size = s.length();

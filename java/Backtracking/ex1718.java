@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class ex1718 {
     public int[] constructDistancedSequence(int n) {
         int siz = 1 + (n-1)*2;

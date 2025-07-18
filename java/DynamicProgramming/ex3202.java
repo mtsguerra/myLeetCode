@@ -1,5 +1,3 @@
-import java.util.*;
-
 class ex3202 {
     /**
      * This method calculates the maximum length of a subsequence of numbers

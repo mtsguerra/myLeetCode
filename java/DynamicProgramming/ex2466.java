@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-
 public class ex2466 {
 
     public int countGoodStrings(int low, int high, int zero, int one){

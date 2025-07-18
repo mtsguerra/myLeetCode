@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class ex2381 {
     public String shiftingLetters(String s, int[][] shifts) {
         int[] indxs = new int[s.length()];

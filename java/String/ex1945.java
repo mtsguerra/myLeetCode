@@ -1,6 +1,3 @@
-import java.util.*;
-
-
 class ex1945{
     /**
      * Find the lucky number of a string after k transformations.

@@ -1,5 +1,3 @@
-import java.util.*;
-
 class ex2176 {
     /**
      * Given an integer array nums and an integer k, return the number of pairs (i, j) such that:

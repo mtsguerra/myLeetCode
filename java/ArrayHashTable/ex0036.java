@@ -1,5 +1,3 @@
-import java.util.*;
-
 class ex0036{
     public boolean isValidSudoku(char[][] board) {
         boolean[][] cols = new boolean[9][9];

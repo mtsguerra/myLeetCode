@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class ex2698 {
     public int punishmentNumber(int n) {
         int finalSum = 0;

@@ -1,5 +1,3 @@
-import java.util.*;
-
 class ex2145{
     /**
      * Calculates the number of valid arrays that can be constructed given

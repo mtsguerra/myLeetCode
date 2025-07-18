@@ -1,5 +1,3 @@
-import java.util.HashSet;
-
 class ex1261 {
     /**
      * Definition for a binary tree node.

@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class ex2116 {
     public boolean canBeValid(String s, String locked) {
         if (s.length()%2!=0) return false;
