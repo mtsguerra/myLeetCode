@@ -3,6 +3,25 @@ import java.util.*;
 class ex3202 {
     public int maximumLength(int[] nums, int k) {
         int maxLength = 0;
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] %= k;
+        }
+        int[][] dp = new int[k][k];
+        for (int currentNum : nums) {
+            for (int j = 0; j < k; j++) {
+                dp[currentNum][j] = dp[j][currentNum] + 1;
+                maxLength = Math.max(maxLength, dp[currentNum][j]);
+            }
+        }
+        return maxLength;
+    }
+
+    /*
+
+    This is a brute force solution that checks all possible pairs of numbers
+
+    public int maximumLength(int[] nums, int k) {
+        int maxLength = 0;
         for (int i = 0; i < nums.length-maxLength; i++) {
             int startingNum = nums[i];
             HashSet<Integer> seen = new HashSet<>();
@@ -27,6 +46,7 @@ class ex3202 {
         }
         return maxLength;
     }
+     */
 
     public static void main(String[] args) {
         int[] nums = {6,14,14,6,13,1,15,8,1};
