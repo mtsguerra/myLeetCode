@@ -1,10 +1,8 @@
-import java.util.*;
-
 /**
  * Definition for singly-linked list.
  *
  */
-class ex206 {
+class ex0206 {
 
     public class ListNode {
      int val;
