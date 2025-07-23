@@ -1,7 +1,46 @@
 import java.util.*;
 
 class ex1717 {
+
     public int maximumGain(String s, int x, int y) {
+        char firstChar = x >= y ? 'a' : 'b';
+        char secondChar = x >= y ? 'b' : 'a';
+        int priorityScore = Math.max(x,y);
+        int secondPriorityScore = Math.min(x,y);
+
+        int score = 0;
+
+        boolean[] toRemove = new boolean[s.length()];
+        Stack<Integer> stck = new Stack<>();
+
+        for (int i= 0;i < s.length(); i++) {
+            if (s.charAt(i) == firstChar) stck.push(i);
+            else if (!stck.isEmpty() && s.charAt(i) == secondChar) {
+                score += priorityScore;
+                toRemove[i] = true;
+                toRemove[stck.pop()] = true;
+            }
+            else stck.clear();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (!toRemove[i]) sb.append(s.charAt(i));
+        }
+        stck.clear();
+
+        for (int i = 0; i < sb.length(); i++) {
+            if (sb.charAt(i) == secondChar) stck.push(i);
+            else if (!stck.isEmpty() && sb.charAt(i) == firstChar) {
+                score += secondPriorityScore;
+                stck.pop();
+            }
+            else stck.clear();
+        }
+        return score;
+    }
+
+    /*public int maximumGain(String s, int x, int y) {
 
         char firstChar = x >= y ? 'a' : 'b';
         int priorityScore = Math.max(x,y);
@@ -53,7 +92,7 @@ class ex1717 {
             stck2.pop();
         }
         return score;
-    }
+    }*/
 
     public static void main(String[] args) {
         ex1717 solution = new ex1717();
