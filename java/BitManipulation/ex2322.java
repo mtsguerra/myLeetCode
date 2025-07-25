@@ -22,9 +22,8 @@ class ex2322{
         int[] xor = new int[nums.length];
         int[] in = new int[nums.length];
         int[] out = new int[nums.length];
-        boolean[] visited = new boolean[nums.length];
         int[] time = new int[1];
-        dfs(xor, in, out, graph, nums, visited, 0,-1, time);
+        dfs(xor, in, out, graph, nums, 0,-1, time);
 
         int lowestScore = Integer.MAX_VALUE;
 
@@ -68,13 +67,13 @@ class ex2322{
     }
 
     private void dfs (int[] xor, int[] in, int[] out, List<Node>[] graph,
-                      int[] nums, boolean[] visited, int node,
+                      int[] nums, int node,
                       int parent, int[] time) {
         in[node] = time[0]++;
         xor[node] = nums[node];
         for (Node child : graph[node]) {
             if (child.to != parent){
-                dfs(xor, in, out, graph, nums, visited, child.to, node, time);
+                dfs(xor, in, out, graph, nums, child.to, node, time);
                 xor[node] ^= xor[child.to];
             }
         }
