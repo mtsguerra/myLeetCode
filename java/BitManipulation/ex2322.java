@@ -9,6 +9,19 @@ class ex2322{
         }
     }
 
+    /**
+     * Given an array of integers and a list of edges, this method calculates the minimum score
+     * of the graph formed by the integers and edges. The score is defined as the difference
+     * between the maximum and minimum XOR values of the three components
+     * formed by removing two edges.
+     *
+     * Time Complexity: O(E^2), where E is the number of edges.
+     * Space Complexity: O(N + E), where N is the number of nodes and E is the number of edges.
+     *
+     * @param nums an array of integers representing node values
+     * @param edges a 2D array representing edges between nodes
+     * @return the minimum score of the graph
+     */
     public int minimumScore(int[] nums, int[][] edges) {
         @SuppressWarnings("unchecked")
         List<Node> [] graph = new ArrayList[nums.length];
