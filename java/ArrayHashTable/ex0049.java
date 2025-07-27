@@ -1,24 +1,26 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 class ex0049 {
+    /**
+     * Given an array of strings strs, group the anagrams together.
+     *
+     * * Time Complexity: O(n * k), where n is the number of strings and k is the maximum length of a string.
+     * * Space Complexity: O(n * k), where n is the number of strings and k is the maximum length of a string.
+     *
+     * @param strs
+     * @return
+     */
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String,List<String>> map = new HashMap<>();
-        for (String str : strs){
-            int[] alph = new int[26];
-            for (char ch : str.toCharArray()){
-                alph[ch-'a']++;
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            int[] count = new int[26];
+            for (char ch : str.toCharArray()) {
+                count[ch - 'a']++;
             }
-            StringBuilder key = new StringBuilder();
-            for (int count : alph) key.append('#').append(count);
-            List<String> list = map.getOrDefault(key.toString(), new ArrayList<>());
-            list.add(str);
-            map.put(key.toString(), list);
+            String key = Arrays.toString(count);
+            map.computeIfAbsent(key, k -> new ArrayList<>()).add(str);
         }
-        List<List<String>> ans = new ArrayList<>();
-        for (List<String> t : map.values()) ans.add(t);
-        return ans;
+        return new ArrayList<>(map.values());
     }
 
     public static void main(String[] args) {
