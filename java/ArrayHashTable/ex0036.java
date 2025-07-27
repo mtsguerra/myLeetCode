@@ -1,4 +1,18 @@
 class ex0036{
+    /**
+     * Determine if a 9x9 Sudoku board is valid.
+     *
+     * A Sudoku board is valid if:
+     * - Each row contains the digits 1-9 without repetition.
+     * - Each column contains the digits 1-9 without repetition.
+     * - Each of the nine 3x3 sub-boxes contains the digits 1-9 without repetition.
+     *
+     * Time Complexity: O(n^2), where n is the size of the board (9x9).
+     * Space Complexity: O(n), for the boolean arrays used to track seen numbers.
+     *
+     * @param board a 2D character array representing the Sudoku board
+     * @return true if the board is valid, false otherwise
+     */
     public boolean isValidSudoku(char[][] board) {
         boolean[][] cols = new boolean[9][9];
         boolean[][] rows = new boolean[9][9];
