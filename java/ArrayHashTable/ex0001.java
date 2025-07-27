@@ -3,6 +3,8 @@ import java.util.HashMap;
 public class ex0001 {
     /**
      * Finds two numbers in an array that add up to a target value.
+     * This method uses a HashMap to store the indices of the numbers
+     * and checks if the complement (target - current number) exists in the map.
      *
      * Time Complexity: O(n) where n is the length of the array
      * Space Complexity: O(n) for the HashMap
