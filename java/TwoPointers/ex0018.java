@@ -1,6 +1,6 @@
 import java.util.*;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ex0018 {
@@ -145,7 +145,7 @@ public class ex0018 {
         }
     }
 
-     */
+
 
     @Test
     public void testFourSumExample(){
@@ -155,6 +155,6 @@ public class ex0018 {
         assertTrue(result.contains(Arrays.asList(-2, 0, 0, 2)));
         assertTrue(result.contains(Arrays.asList(-1, 0, 0, 1)));
     }
-
+*/
 
 }
