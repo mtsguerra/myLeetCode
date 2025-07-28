@@ -13,23 +13,21 @@ class ex2044{
      * @param nums Array of integers
      * @return Number of subsets with maximum bitwise OR
      */
-}
     public int countMaxOrSubsets(int[] nums) {
         int bitwiseOr = 0;
         for (int num : nums) {
             bitwiseOr |= num;
         }
-        boolean[] visited = new boolean[nums.length];
-        return countSubsets(nums, 0, 0,0, bitwiseOr, visited);
+        return countSubsets(nums, 0, 0,bitwiseOr);
     }
 
     private int countSubsets(int[] nums, int index, int currentOr, int targetOr) {
         if (index == nums.length) {
             return currentOr == targetOr ? 1 : 0;
         }
-        // Include the current number in the OR calculation
+        // include the current number in the subset
         int include = countSubsets(nums, index + 1, currentOr | nums[index], targetOr);
-        // Exclude the current number from the OR calculation
+        // exclude the current number from the subset, moving to the next index
         int exclude = countSubsets(nums, index + 1, currentOr, targetOr);
 
         return include + exclude;
