@@ -51,7 +51,7 @@ class ex2044{
             }
         }
         return count;
-    }/*
+    }*/
 
     public static void main(String[] args) {
         ex2044 myo = new ex2044();
