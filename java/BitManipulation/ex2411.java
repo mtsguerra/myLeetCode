@@ -2,6 +2,21 @@ import java.util.*;
 
 class ex2411{
 
+    /**
+     * Given an array of integers nums, return an array result where result[i]
+     * is the length of the smallest subarray starting at index i such that
+     * the bitwise OR is maximized.
+     * Approach:
+     * 1. Iterate through the array from the end to the start.
+     * 2. For each number, update the last seen index of each bit position (0 to 31).
+     * 3. For each index, find the farthest index of any bit that is set in the current number.
+     *
+     * Time Complexity: O(n) where n is the length of nums.
+     * Space Complexity: O(1) for storing bit positions.
+     *
+     * @param nums Array of integers
+     * @return Array of lengths of smallest subarrays
+     */
     public int[] smallestSubarrays(int[] nums) {
         int [] result = new int[nums.length];
         int [] bitPositions = new int[32];
