@@ -3,7 +3,8 @@ import java.util.Arrays;
 class ex0912 {
     /**
      * Given an integer array nums, sort the array in ascending order and return it.
-     * This implementation uses the merge sort algorithm.
+     * This implementation uses the merge sort algorithm, but can be done
+     * with built-in Arrays.sort() in lower time.
      *
      * Time Complexity: O(n log n) where n is the number of elements in the array.
      * Space Complexity: O(n) for the temporary arrays used in merging.
