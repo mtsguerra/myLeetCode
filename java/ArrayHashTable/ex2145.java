@@ -3,7 +3,6 @@ class ex2145{
      * Calculates the number of valid arrays that can be constructed given
      * the differences array such that all elements in the resulting array
      * are within the specified bounds [lower, upper].
-     *
      * Approach:
      * 1. Compute the prefix sums of the differences to understand the
      * relative values from the start.
