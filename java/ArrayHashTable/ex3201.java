@@ -22,7 +22,7 @@ public class ex3201 {
         else nOdd++;
         // no need to check the alternating sequence for both even and odd,
         // because for the largest alternating sequence, the first number
-        // will always determine the parity of the sequence.
+        // will always determine the parity of the sequence
         for (int i=1;i<nums.length;i++){
             if (nums[i]%2==0) nEven++;
             else nOdd++;
