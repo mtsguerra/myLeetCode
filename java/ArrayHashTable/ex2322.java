@@ -9,6 +9,20 @@ class ex2322{
         }
     }
 
+    /**
+     * Given an array of integers nums and a 2D array edges, this method
+     * calculates the minimum score of a path in a tree formed by the edges.
+     * The score is defined as the difference between the maximum and minimum
+     * XOR values of the nodes in the path.
+     * Approach: On the Notes folder.
+     *
+     * Time Complexity: O(E^2), where E is the number of edges.
+     * Space Complexity: O(N + E), where N is the number of nodes and E is the number of edges.
+     *
+     * @param nums Array of integers representing node values.
+     * @param edges 2D array representing edges between nodes.
+     * @return The minimum score of a path in the tree.
+     */
     public int minimumScore(int[] nums, int[][] edges) {
         @SuppressWarnings("unchecked")
         List<Node> [] graph = new ArrayList[nums.length];
