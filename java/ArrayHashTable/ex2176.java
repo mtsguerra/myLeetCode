@@ -9,7 +9,7 @@ class ex2176 {
      * Space complexity: O(1) since we are using a constant amount of space.
      *
      * @param nums the input array
-     * @param k the divisor
+     * @param k the divisor number
      * @return the number of valid pairs
      */
     public int countPairs(int[] nums, int k) {
