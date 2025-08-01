@@ -5,7 +5,7 @@ class ex2500{
      * Deletes the greatest value from each row and returns the greatest
      * value of those removed and accumulate it with +.
      *
-     * Time Complexity : O(m*n*log(n)), m->rows, n->cols.
+     * Time Complexity : O(m*n*log(n))
      * Space Complexity : O(1) only using arrays
      *
      * @param grid the @D integer grid to process it
