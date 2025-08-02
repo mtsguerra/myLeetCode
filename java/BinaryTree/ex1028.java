@@ -1,19 +1,28 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
+import java.util.*;
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
 
 public class ex1028 {
+    /**
+     * Given a string traversal representing the preorder traversal of a binary tree,
+     * reconstruct the binary tree and return its root.
+     *
+     * Time Complexity: O(n) where n is the number of nodes in the tree.
+     * Space Complexity: O(n) for storing pairs and stack.
+     *
+     * @param traversal String representing the preorder traversal of a binary tree
+     * @return Root node of the reconstructed binary tree
+     */
     public TreeNode recoverFromPreorder(String traversal) {
         int i=0;
         List<int[]> pairs = new ArrayList<>();
@@ -50,4 +59,4 @@ public class ex1028 {
 
         return root;
     }
-}*/
+}
