@@ -11,6 +11,17 @@ public class ex0270 {
             this.right = right;
         }
     }
+    /**
+     * Given the root of a binary search tree and a target value, return the value in the BST
+     * that is closest to the target value.
+     *
+     * Time Complexity: O(h) where h is the height of the tree.
+     * Space Complexity: O(h) for the recursion stack.
+     *
+     * @param root Root node of the binary search tree
+     * @param target Target value to find the closest value to
+     * @return The value in the BST that is closest to the target value
+     */
     public int closestValue(TreeNode root, double target) {
         return closestValueRecursive(root, target, Integer.MAX_VALUE);
     }
