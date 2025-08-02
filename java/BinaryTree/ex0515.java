@@ -15,6 +15,8 @@ public class ex0515 {
             }
         }
 
+        // Old comments //
+
     //--------------------------------------------------------------------//
     // in this one i create a public list where the biggest value will be stored, and create
     // a recursive method to iterate through the tree, using the root, and the currentLevel
@@ -26,6 +28,15 @@ public class ex0515 {
 
     public List<Integer> lv;
 
+    /**
+     * Given the root of a binary tree, return a list of the largest value in each row.
+     *
+     * Time Complexity: O(n) where n is the number of nodes in the tree.
+     * Space Complexity: O(h) where h is the height of the tree due to recursion stack.
+     *
+     * @param root Root node of the binary tree
+     * @return List of largest values in each row of the binary tree
+     */
     public List<Integer> largestValues(TreeNode root) {
         lv = new LinkedList<>();
         largestValuesRecursive(root, 0);
