@@ -15,6 +15,7 @@ class ex0155{
         if (minStack.isEmpty() || val <= minStack.peek()){
             minStack.push(val);
         }
+
     }
 
     public void pop() {
