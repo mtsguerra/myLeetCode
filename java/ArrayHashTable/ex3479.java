@@ -28,6 +28,7 @@ class ex3479{
                     }
                 }
             }
+            // ...
             if (bestBasket == -1) answer++;
             else {
                 set.add(bestIndex);
