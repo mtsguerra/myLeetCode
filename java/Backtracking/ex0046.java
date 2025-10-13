@@ -2,8 +2,57 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ex0046 {
+
+    // permutation by inserting each number into every possible position
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        for (int num : nums) {
+            List<List<Integer>> newPerms = new ArrayList<>();
+            if (result.isEmpty()) {
+                List<Integer> single = new ArrayList<>();
+                single.add(num);
+                newPerms.add(single);
+            } else {
+                for (List<Integer> perm : result) {
+                    for (int i = 0; i <= perm.size(); i++) {
+                        List<Integer> newPerm = new ArrayList<>(perm);
+                        newPerm.add(i, num);
+                        newPerms.add(newPerm);
+                    }
+                }
+            }
+            result = newPerms;
+        }
+        return result;
+    }
+
+    // permutation using boolean array to track visited
+    public List<List<Integer>> permute3(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        boolean[] visited = new boolean[nums.length];
+        permuteHelper(nums, visited, new ArrayList<>(), result);
+        return result;
+    }
+
+    private void permuteHelper(int[] nums, boolean[] visited,
+                               List<Integer> current, List<List<Integer>> result) {
+        if (current.size() == nums.length) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+        for (int i=0; i<nums.length; i++) {
+            if (!visited[i]) {
+                current.add(nums[i]);
+                visited[i] = true;
+                permuteHelper(nums, visited, current, result);
+                visited[i] = false;
+                current.remove(current.size() - 1);
+            }
+        }
+    }
+
     // permutation by swapping
-    public List<List<Integer>> permute(int[] nums){
+    public List<List<Integer>> permute2(int[] nums){
         List<List<Integer>> res = new ArrayList<>();
         // using the int start as a way to keep track where to start the swapping
         bt(nums, 0, res);
