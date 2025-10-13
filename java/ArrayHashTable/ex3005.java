@@ -12,18 +12,18 @@ class ex3005 {
      */
     public int maxFrequencyElements(int[] nums) {
         int[] arr = new int[101];
-        int ans = 0;
+        int res = 0;
         int biggestSeq = 0;
         for (int n : nums){
             arr[n]++;
             if (arr[n] > biggestSeq){
                 biggestSeq = arr[n];
-                ans = arr[n];
+                res = arr[n];
             }
             else if (arr[n] == biggestSeq) {
-                ans += arr[n];
+                res += arr[n];
             }
         }
-        return ans;
+        return res;
     }
 }
