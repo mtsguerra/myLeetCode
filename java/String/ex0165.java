@@ -16,6 +16,7 @@ class ex0165{
      * @return 1 if version1 > version2, -1 if version1 < version2, otherwise 0.
      */
     public int compareVersion(String version1, String version2) {
+        // Split the version strings into their respective components
         String[] revised1 = version1.split("\\.");
         String[] revised2 = version2.split("\\.");
         int length = Math.min(revised1.length, revised2.length);
