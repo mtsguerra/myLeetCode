@@ -11,7 +11,7 @@ public class ex1079 {
     *
     * @param tiles The input string representing the tiles with letters
     * @return The number of distinct non-empty sequences that can be formed
-    *         using the letters from the input string
+    * using the letters from the input string
     */
     public int numTilePossibilities(String tiles){
         int[] alpha = new int[26];
