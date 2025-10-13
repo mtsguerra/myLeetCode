@@ -23,7 +23,7 @@ class ex0017{
                 9, new char[]{'w', 'x', 'y', 'z'}
         );
         List<String> result = new ArrayList<>();
-        if (digits == null || digits.length() == 0) {
+        if (digits == null || digits.isEmpty()) {
             return result;
         }
         StringBuilder current = new StringBuilder();
