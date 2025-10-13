@@ -1,6 +1,18 @@
 import java.util.HashSet;
 
 public class ex1079 {
+    /*
+    * Counts the number of distinct non-empty sequences that can be formed
+    * using the letters from the input string 'tiles'. Each letter can be
+    * used only as many times as it appears in the input string.
+    *
+    * Time Complexity: O(n * 2^n) where n is the length of the input string
+    * Space Complexity: O(n) for the recursion stack and frequency array
+    *
+    * @param tiles The input string representing the tiles with letters
+    * @return The number of distinct non-empty sequences that can be formed
+    *         using the letters from the input string
+    */
     public int numTilePossibilities(String tiles){
         int[] alpha = new int[26];
         for (char ch : tiles.toCharArray()){
@@ -59,6 +71,6 @@ public class ex1079 {
     }
     public static void main(String[] args) {
         ex1079 myo = new ex1079();
-        System.out.println(myo.numTilePossibilities("AAABBC"));
+        System.out.println(myo.numTilePossibilities("AAB"));
     }
 }
