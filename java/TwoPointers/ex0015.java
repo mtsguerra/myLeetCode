@@ -3,6 +3,43 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ex0015 {
+    /**
+     *
+     * Finds all unique triplets in the array that sum to zero.
+     * Approach:
+     * 1. Sort the array to use the two-pointer method.
+     * 2. Iterate through the array, using the current element as a reference.
+     * 3. Use two pointers to find pairs that sum to the negative of the
+     * current element.
+     *
+     * Time complexity: O(n^2) where n is the length of the array.
+     * Space complexity: O(1) since we are using a constant amount of space.
+     *
+     * @param nums the input array
+     * @return a list of the triplets that sum to zero
+     */
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] > 0 ) break;
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int target = -nums[i];
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right) {
+                int s = nums[right]+nums[left];
+                if (s == target) {
+                    res.add(List.of(nums[i], nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right-1]) right--;
+                }
+                if (s < target) left++;
+                else right--;
+            }
+        }
+        return res;
+    }
 
     /**
      * Finds all unique triplets in the array that sum to zero.
@@ -19,7 +56,7 @@ public class ex0015 {
      * @param nums the input array
      * @return a list of lists containing the triplets that sum to zero
      */
-    public List<List<Integer>> threeSum(int[] nums){
+    public List<List<Integer>> threeSum1(int[] nums){
         List<List<Integer>> answer = new ArrayList<>();
         Arrays.sort(nums);
         for (int i=0;i<nums.length-2;i++){
