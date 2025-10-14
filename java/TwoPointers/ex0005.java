@@ -17,6 +17,7 @@ public class ex0005 {
 
         for (int i=0;i<s.length();i++){
             int maxLen = Math.min(i+1,s.length()-i)*2+1;
+            // in case of the maxLen is less than the current longest palindrome
             if (maxLen < right-left) continue;
             int lenOdd = expandFromMiddle(s, i, i);
             int lenEven = expandFromMiddle(s, i, i+1);
