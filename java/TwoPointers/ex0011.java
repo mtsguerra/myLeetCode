@@ -30,5 +30,4 @@ public class ex0011 {
         }
         return maxArea;
     }
-
 }
